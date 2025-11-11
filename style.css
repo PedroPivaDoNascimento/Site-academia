@@ -78,7 +78,6 @@ body {
     background-color: var(--background-gray);
 }
 
-/* --- Botões (Chamadas para Ação) --- */
 .cta-button, .btn-secondary {
     display: inline-block;
     padding: 12px 30px;
@@ -255,7 +254,6 @@ body {
         padding: 0 10px;
     }
 
-    /* Seções Adicionais */
     .section {
         padding: 40px 5%;
     }
@@ -264,7 +262,6 @@ body {
         font-size: 2em;
     }
 
-    /* Sobre Nós - Deixa os blocos de texto em coluna */
     .about-content {
         flex-direction: column;
         gap: 20px;
@@ -279,5 +276,106 @@ body {
     .cta-button {
         font-size: 1em;
         padding: 10px 20px;
+    }
+}
+
+
+
+.planos-container {
+    display: grid;
+    /* Layout de grade: 4 colunas em desktop, adaptação em telas menores */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px;
+    margin-top: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.plano-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 0; /* Remove padding inicial pois os elementos internos terão */
+    text-align: left;
+    overflow: hidden; /* Garante que a imagem se ajuste ao border-radius */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.plano-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.plano-card img {
+    width: 100%;
+    height: 200px; /* Altura fixa para as imagens */
+    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+}
+
+.plano-content {
+    padding: 20px;
+}
+
+.plano-content h4 {
+    font-size: 1.4em;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+}
+
+.plano-content p.descricao {
+    font-size: 0.9em;
+    color: var(--text-color);
+    min-height: 40px; /* Ajuda a manter a altura consistente */
+}
+
+.plano-content p.preco {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 15px 0;
+}
+
+.plano-content .badge {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--light-text-color);
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.plano-content .badge.best-seller {
+    background-color: var(--primary-color);
+}
+
+/*Área responsável pela responsividade*/
+
+@media (max-width: 1024px) {
+    /* Telas de tablet/laptop menor */
+    .planos-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Telas menores/Mobile */
+    
+    /* Hero Section (Reajuste) */
+    .hero-content h2 {
+        font-size: 2.5em; 
+    }
+
+    /* Planos - Coluna única no mobile */
+    .planos-container {
+        grid-template-columns: 1fr; /* 1 coluna */
+    }
+    
+    .plano-card {
+        max-width: 400px;
+        margin: 0 auto; /* Centraliza o cartão de coluna única */
     }
 }
